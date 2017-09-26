@@ -1,0 +1,2 @@
+# CCtempSensor
+assign 3
