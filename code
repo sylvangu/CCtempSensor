@@ -1,7 +1,10 @@
 int temperatureSensor;
+int led = 12;
+int brightness;
 
 void setup() {
   Serial.begin(9600);
+  pinMode(led, OUTPUT);
 }
 
 //https://learn.adafruit.com/tmp36-temperature-sensor/using-a-temp-sensor <<< this link saved my life
@@ -22,4 +25,7 @@ void loop() {
   Serial.print(fahrenheit); Serial.println(" degrees Fahrenheit"); Serial.println("");
 
   delay(1000);
+
+  brightness = map(fahrenheit, 69, 81, 0, 255);
+  analogWrite(led, brightness);
 }
